@@ -7,7 +7,7 @@ import { chromium, Page } from "playwright";
     await page.goto("https://www.pcfactory.cl/xbox?categoria=664&papa=438");
     //await page.screenshot({path: 'xbox.png'});
     try {
-        let content = await page.textContent('[class="product-list"]');
+        const content = await page.textContent('[class="product-list"]');
         console.log(content);
         if(content?.includes("Xbox Series X")){
             console.log("encontrado");
