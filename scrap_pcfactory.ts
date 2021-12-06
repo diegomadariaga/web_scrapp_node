@@ -18,6 +18,18 @@ import { chromium, Page } from "playwright";
     } catch (error) {
         console.log("ha ocurrido un error: ", error);
     }
+    // hacer click en el boton de buscar
+    await page.click('[class="ais-SearchBox-input"]');
+    // escribir el nombre del juego
+    await page.type('[class="ais-SearchBox-input"]', 'nicolito xbox');
+    // hacer click en el boton de buscar
+    await page.click('[class="ais-input-search-button"]');
+    // esperar a que se carguen los resultados
+    await page.waitForSelector('[id="data_mentalidad_web"]');
 
-    await browser.close();
+    await page.screenshot({path: 'xbox.png'});
+    
+
+
+    //await browser.close();
 })();
